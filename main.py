@@ -18,10 +18,10 @@ class Player(pygame.sprite.Sprite):
 
     def player_input(self):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE] and self.rect.bottom == 300:
+        if keys[pygame.K_UP] and self.rect.bottom == 300 or keys[pygame.K_w] and self.rect.bottom == 300:
             self.gravity = -8
             self.jump_sound.play()
-        elif keys[pygame.K_SPACE] and self.rect.bottom < 100:
+        elif keys[pygame.K_UP] and self.rect.bottom < 100 or keys[pygame.K_w] and self.rect.bottom < 100:
             self.gravity = 5
     
     def apply_gravity(self):
@@ -125,7 +125,7 @@ title_surface = text_font.render('Welcome to Py Run!', False, (111,196,169))
 title_rectangle = title_surface.get_rect(center=(400,330))
 credits_surface = text_font2.render('A pygame by Emmanuel Esperanca', False, (50,50,50))
 credits_rectangle = credits_surface.get_rect(center=(400,380))
-menu_surface = text_font.render('Press SPACE to play', False, (50,50,50))
+menu_surface = text_font.render('Press W or UP to play', False, (50,50,50))
 menu_rectangle = menu_surface.get_rect(center=(400,50))
 
 # Timer
@@ -143,7 +143,7 @@ while True:
             pygame.quit()
             exit()
         if event.type == pygame.KEYDOWN and game_active == False:
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_w or event.key == pygame.K_UP:
                 game_active = True
                 start_time = int(pygame.time.get_ticks()/1000)
         if event.type == obstacle_timer and game_active:
