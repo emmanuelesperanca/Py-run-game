@@ -49,8 +49,8 @@ class Obstacle(pygame.sprite.Sprite):
         super().__init__()
         
         if type == 'fly':
-            fly1_surface = pygame.image.load('graphics/Fly/fly1.png').convert_alpha()
-            fly2_surface = pygame.image.load('graphics/Fly/fly2.png').convert_alpha()
+            fly1_surface = pygame.image.load('graphics/Fly/Fly1.png').convert_alpha()
+            fly2_surface = pygame.image.load('graphics/Fly/Fly2.png').convert_alpha()
             self.frames = [fly1_surface, fly2_surface]
             y_pos = 200
 
